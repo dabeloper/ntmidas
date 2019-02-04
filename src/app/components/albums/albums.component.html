@@ -1,0 +1,32 @@
+
+<section class="speech-bubble">
+    <h2> Albums </h2>
+  </section>
+  
+  <section class="main">
+            
+    <ul *ngIf="albums"
+        class="todo-list">
+      <li *ngFor="let album of albums">
+  
+        <div class="view">
+          <label><i class="material-icons">photo_album</i> {{album.title}}</label>
+          <a class="destroy go" (click)="getPhotos(album.id)"></a>
+        </div>
+  
+        <div class="view">
+          <slideshow  *ngIf="album.photos" 
+                      style="height: 100px;"
+                      [imageUrls]="album.photos"></slideshow>
+        </div>
+      </li>
+    </ul>
+  </section>
+  
+  <footer class="footer" >
+    <span class="todo-count">
+          <label class="info" *ngIf="user"> <i class="material-icons">account_circle</i> {{user.name}}</label>
+    </span>
+    <a [routerLink]="['/users' , userId, 'options']" style="position: absolute;"> < Go Back </a>
+  </footer>
+  

@@ -1,0 +1,33 @@
+  
+<section class="speech-bubble">
+  <h2> Users </h2>
+</section>
+
+<section *ngIf="users.length > 0"
+          class="main">
+
+
+    <ul class="todo-list">
+      <li *ngFor="let user of users" 
+          [class.completed]="user.completed" 
+          [class.editing]="user.editing">
+
+        <div class="view">
+            <button class="delete" (click)="deleteUser(user)"> <i class="material-icons">delete_forever</i> </button>
+            <label> <i class="material-icons">account_circle</i> {{user.name}}</label>
+            <a class="destroy go" (click)="showOptions(user)"></a>
+        </div>
+
+      </li>
+    </ul>
+</section>
+
+<footer class="footer" 
+        *ngIf="users.length > 0">
+  <span class="todo-count">
+      <strong>{{users.length}}</strong> Users
+  </span>
+  <a class="btn-add" [routerLink]="['/users/new']"> 
+    <i class="material-icons">person_add</i> New User 
+  </a>
+</footer>

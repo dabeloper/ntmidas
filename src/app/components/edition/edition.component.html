@@ -1,0 +1,171 @@
+  
+<section class="speech-bubble">
+  <h2 *ngIf="title"> {{ title }} </h2>
+</section>
+
+<section    *ngIf="user" 
+            class="main">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    
+        <label>
+            Name:
+            <input type="text" formControlName="name" [(ngModel)]="user.name"/>
+            <div *ngIf="(userForm.controls.username.touched && userForm.controls.username.invalid)"
+                class="error">
+                Field required
+            </div>
+        </label>
+        
+        
+        <label>
+            UserName:
+            <input type="text" formControlName="username" [(ngModel)]="user.username"/>
+            <div *ngIf="(userForm.controls.username.touched && userForm.controls.username.invalid)"
+                class="error">
+                Field required
+            </div>
+        </label>
+        
+        
+        <label>
+            Email:
+            <input type="email" formControlName="email" [(ngModel)]="user.email"/>
+            <div *ngIf="(userForm.controls.email.touched && userForm.controls.email.invalid)"
+                class="error">
+                Field required
+            </div>
+        </label>
+        
+    
+        <label>
+            Phone:
+            <input type="text" formControlName="phone" [(ngModel)]="user.phone"/>
+            <div *ngIf="(userForm.controls.phone.touched && userForm.controls.phone.invalid)"
+                class="error">
+                Field required
+            </div>
+        </label>
+        
+    
+        <label>
+            Website:
+            <input type="text" formControlName="website" [(ngModel)]="user.website"/>
+            <div *ngIf="(userForm.controls.website.touched && userForm.controls.website.invalid)"
+                class="error">
+                Field required
+            </div>
+        </label>
+        
+        
+        <div formGroupName="address">
+            <h3>Address</h3>
+        
+            <label>
+                Street:
+                <input type="text" formControlName="street" [(ngModel)]="user.address.street"/>
+                <div *ngIf="(userForm.controls.address.controls.street.touched && userForm.controls.address.controls.street.invalid)"
+                    class="error">
+                    Field required
+                </div>
+            </label>
+            
+            
+            <label>
+                Suite:
+                <input type="text" formControlName="suite" [(ngModel)]="user.address.suite"/>
+                <div *ngIf="(userForm.controls.address.controls.suite.touched && userForm.controls.address.controls.suite.invalid)"
+                    class="error">
+                    Field required
+                </div>
+            </label>
+            
+        
+            <label>
+                City:
+                <input type="text" formControlName="city" [(ngModel)]="user.address.city"/>
+                <div *ngIf="(userForm.controls.address.controls.city.touched && userForm.controls.address.controls.city.invalid)"
+                    class="error">
+                    Field required
+                </div>
+            </label>
+            
+        
+            <label>
+                Zip Code:
+                <input type="text" formControlName="zipcode" [(ngModel)]="user.address.zipcode"/>
+                <div *ngIf="(userForm.controls.address.controls.zipcode.touched && userForm.controls.address.controls.zipcode.invalid)"
+                    class="error">
+                    Field required
+                </div>
+            </label>
+            
+    
+            <div formGroupName="geo">
+                <h4>Geo</h4>
+            
+                <label>
+                    Lat:
+                    <input type="text" formControlName="lat" [(ngModel)]="user.address.geo.lat"/>
+                    <div *ngIf="(userForm.controls.address.controls.geo.controls.lat.touched && userForm.controls.address.controls.geo.controls.lat.invalid)"
+                        class="error">
+                        Field required
+                    </div>
+                </label>
+                
+            
+                <label>
+                    Long:
+                    <input type="text" formControlName="lng" [(ngModel)]="user.address.geo.lng"/>
+                    <div *ngIf="(userForm.controls.address.controls.geo.controls.lng.touched && userForm.controls.address.controls.geo.controls.lng.invalid)"
+                        class="error">
+                        Field required
+                    </div>
+                </label>
+                
+            </div>
+        </div>
+    
+            <div formGroupName="company">
+                <h3>Company</h3>
+            
+                <label>
+                    Name:
+                    <input type="text" formControlName="name" [(ngModel)]="user.company.name"/>
+                    <div *ngIf="(userForm.controls.company.controls.name.touched && userForm.controls.company.controls.name.invalid)"
+                        class="error">
+                        Field required
+                    </div>
+                </label>
+                
+    
+                <label>
+                    Catch Phrase:
+                    <input type="text" formControlName="catchPhrase" [(ngModel)]="user.company.catchPhrase"/>
+                    <div *ngIf="(userForm.controls.company.controls.catchPhrase.touched && userForm.controls.company.controls.catchPhrase.invalid)"
+                        class="error">
+                        Field required
+                    </div>
+                </label>
+                
+            
+                <label>
+                    BS:
+                    <input type="text" formControlName="bs" [(ngModel)]="user.company.bs"/>
+                    <div *ngIf="(userForm.controls.company.controls.bs.touched && userForm.controls.company.controls.bs.invalid)"
+                        class="error">
+                        Field required
+                    </div>
+                </label>
+                
+            </div>
+            
+            <button type="submit" [disabled]="!userForm.valid">Submit</button>
+    </form>
+</section>
+
+<footer class="footer" >
+  <span *ngIf="user" class="todo-count">
+        <label class="info" *ngIf="user"> <i class="material-icons">account_circle</i> {{user.name}}</label>
+  </span>
+  <button (click)="goBack()" style="position: absolute;"> < Go Back </button>
+</footer>

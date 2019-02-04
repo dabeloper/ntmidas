@@ -1,0 +1,35 @@
+
+<section class="speech-bubble">
+    <h2> Posts </h2>
+  </section>
+  
+  <section class="main">
+            
+      <ul *ngIf="posts"
+          class="todo-list">
+        <li *ngFor="let post of posts">
+    
+          <div class="view">
+            <label><i class="material-icons">forum</i> {{post.title}}</label>
+            <a class="destroy go" (click)="getComments(post.id)"></a>
+          </div>
+    
+          <div class="view">
+              <carousel-component *ngIf="post.comments" #commentsCarousel>
+                  <div *ngFor="let comment of post.comments" class="item-carousel comment">
+                      <cite> {{ comment.body }} <u> -- {{ comment.email }} -- </u> </cite>
+                      
+                  </div>
+              </carousel-component>
+          </div>
+        </li>
+      </ul>
+    </section>
+  
+  <footer class="footer" >
+    <span class="todo-count">
+          <label class="info" *ngIf="user"> <i class="material-icons">account_circle</i> {{user.name}}</label>
+    </span>
+    <a [routerLink]="['/users' , userId, 'options']" style="position: absolute;"> < Go Back </a>
+  </footer>
+  

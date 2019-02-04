@@ -1,0 +1,25 @@
+  
+<section class="speech-bubble">
+  <h2> Options </h2>
+</section>
+
+<section class="main">
+          
+  <ul class="todo-list">
+    <li *ngFor="let option of options">
+
+      <div class="view">
+        <label> <i class="material-icons">label</i> {{option.value}}</label>
+        <a class="destroy go" [routerLink]="['/users', userId, option.link]"></a>
+      </div>
+
+    </li>
+  </ul>
+</section>
+
+<footer class="footer" >
+  <span class="todo-count">
+        <label class="info" *ngIf="user"> <i class="material-icons">account_circle</i> {{user.name}}</label>
+  </span>
+  <a [routerLink]="['/users']" style="position: absolute;"> < Go Back </a>
+</footer>

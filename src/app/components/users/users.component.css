@@ -1,0 +1,31 @@
+.btn-add {
+    border: 1px #eee;
+    background: #1976d2;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    margin: auto 0;
+    float: none;
+    /* margin: 5px; */
+    position: relative;
+    z-index: 999;
+    width: 150px;
+}
+
+
+.delete {
+	text-align: center;
+	width: 40px;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	border: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.delete:hover {
+	color: #af5b5e;
+}
